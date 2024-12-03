@@ -21,6 +21,7 @@ This project is a web-based image processing application that leverages Flask fo
 ### Implementation Video
 
 - **Video**: Video Showing Implementation of FDME on Bird Image Taking Number of Superpixels as 200
+[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://github.com/Aditya-Kora/FDME/blob/main/GUI%20Implementation.mp4)
 
 ---
 ## Technologies Used
