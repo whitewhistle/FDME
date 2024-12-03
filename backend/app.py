@@ -22,7 +22,7 @@ def upload_image():
         return jsonify({"error": "No file uploaded"}), 400
     std1 = float(request.form.get('std1', 1))  # Default to 1 if not provided
     std2 = float(request.form.get('std2', 2))  # Default to 2 if not provided
-
+    n_superpixels = int(request.form.get('nSuperpixels', 200))
     if std2 <= std1:
         return jsonify({"error": "std2 must be greater than std1"}), 400
     file = request.files['image']
@@ -38,20 +38,20 @@ def upload_image():
     canny_image = apply_canny_edge_detection(gray_image)
     sparse_bmap,mag1,mag2 = estimate_sparse_blur(gray_image, canny_image, std1=1, std2=2)  
     seed_mask = sparse_bmap > 0
-    slic_image = slic_superpixel (rgb_image,200,10)
+    slic_image = slic_superpixel (rgb_image,n_superpixels,10)
     dense_defocus_slic, superpixels = process_image_slic (
     rgb_image, 
     sparse_bmap, 
     seed_mask,
-    n_segments=200,
+    n_segments=n_superpixels,
     compactness=20,
 )
-    snic_image = snic_superpixel_image(rgb_image,200,10)
+    snic_image = snic_superpixel_image(rgb_image,n_superpixels,10)
     dense_defocus_snic, superpixels_snic = process_image_snic(
     rgb_image, 
     sparse_bmap, 
     seed_mask,
-    n_segments=200,
+    n_segments=n_superpixels,
     compactness=20,
 )
     rgb = os.path.join(UPLOAD_FOLDER, 'converted_rgb.png')
