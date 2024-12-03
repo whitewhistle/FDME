@@ -1,0 +1,9 @@
+Flask==3.1.0
+Flask_Cors==5.0.0
+matplotlib==3.8.1
+numpy==1.25.1
+opencv_python==4.10.0.84
+opencv_python_headless==4.8.0.76
+pandas==2.2.3
+scipy==1.14.1
+scikit-image==0.24.0
