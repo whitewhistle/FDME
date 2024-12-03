@@ -6,6 +6,7 @@ const ImageUpload = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [std1, setStd1] = useState(1);
   const [std2, setStd2] = useState(2);
+  const [nSuperpixels, setNSuperpixels] = useState(200);
   const [imageResults, setImageResults] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -37,6 +38,7 @@ const ImageUpload = () => {
     formData.append("image", selectedImage);
     formData.append("std1", std1);
     formData.append("std2", std2);
+    formData.append("nSuperpixels", nSuperpixels);
 
     setLoading(true);
     setError("");
@@ -97,7 +99,7 @@ const ImageUpload = () => {
       <input type="file" onChange={handleImageChange} />
       <div>
         <label style={{ marginRight: "20px" }}>
-          std1:
+          Std1:
           <input
             type="number"
             value={std1}
@@ -106,14 +108,23 @@ const ImageUpload = () => {
             step="0.1"
           />
         </label>
-        <label>
-          std2:
+        <label style={{ marginRight: "20px" }}>
+          Std2:
           <input
             type="number"
             value={std2}
             onChange={(e) => setStd2(parseFloat(e.target.value))}
             min={std1 + 0.1}
             step="0.1"
+          />
+        </label>
+        <label>
+          Number of Superpixels:
+          <input
+            type="number"
+            value={nSuperpixels}
+            onChange={(e) => setNSuperpixels(parseInt(e.target.value))}
+            min="10"
           />
         </label>
       </div>
