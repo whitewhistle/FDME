@@ -1,6 +1,6 @@
-# Image Processing with Flask and React
+# Extended Fast defocus map estimation
 
-This project is a web-based image processing application that leverages Flask for backend image processing and React for frontend user interaction. The application allows users to upload images, configure processing parameters, and view results for various image processing techniques such as SLIC and SNIC superpixel segmentation, grayscale conversion, edge detection, and defocus blur estimation.
+This project is a web-based image processing application that leverages Flask for backend image processing and React for frontend user interaction. The application allows users to upload images, configure processing parameters, and view results for various image processing techniques such as SLIC and SNIC superpixel segmentation and ultimately defocus blur estimation.
 
 ---
 
